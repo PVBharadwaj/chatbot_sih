@@ -1,13 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+body{
+    /* font-family: "Inter", sans-serif; */
+    font-family: "DM Serif Text", serif;
+}
+
+.main-page{
+    width: 100%;
+    display: flex;
+    /* background-color: antiquewhite; */
+    
+    /* opacity: 0.2; */
+    height: 100vh;
+    /* align-items: center; */
+    text-align: center;
+    justify-content: center;
+}
+
 .tandcplate{
-    width: 60%;
-    border-radius: 40px;
-    background-color: aliceblue;
+    width: 100%;
+    text-align: center;
+    color: rgb(46 10 29);
+    background-image: linear-gradient(transparent, rgb(56, 55, 55));
 }
 
-.bpModalDialogNewConversationButton{
-    color: red;
+.image-div{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("http://www.tourmyindia.com/blog/wp-content/uploads/2013/12/indian-museum-kolkata.jpg");
+    z-index: -1;
+    opacity: 0.6;
 }
 
-.bpFabIcon{
-    color: red;
+.head1{
+    font-size: 52px;
+    padding: 40px;
 }
+
+.para1{
+    font-size: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Customize bot message bubble */
+  .bpw-bubble.bp-from-bot {
+    background-color: #4CAF50 !important; /* Change the bot bubble background color */
+    color: #fff; /* Change the text color */
+  }
+
+  /* Customize user message bubble */
+  .bpw-bubble.bp-from-user {
+    background-color: #abcdf1 !important; /* Change the user bubble background color */
+    color: #fff; /* Change the text color */
+  }
+
+  /* Customize chat input box */
+  .bpw-chat-input {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    color: #333;
+  }
+
+  /* Customize chat header */
+  .bpw-header {
+    background-color: #007BFF;
+    color: #fff;
+  }
+
+  /* Customize the chatbot avatar */
+  .bpw-avatar {
+    background-image: url('/path/to/custom-avatar.png');
+  }
