@@ -1,0 +1,13 @@
+.tandcplate{
+    width: 60%;
+    border-radius: 40px;
+    background-color: aliceblue;
+}
+
+.bpModalDialogNewConversationButton{
+    color: red;
+}
+
+.bpFabIcon{
+    color: red;
+}

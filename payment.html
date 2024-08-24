@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="payment.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AZazp6JxWvFSkwlODkglO5nJM6Gq6SYo30bxAZbVVmHRcS6l6X3ljGnOnZGa0B0Vv1mEfcA7MyUQz9uh"></script>
+</head>
+<body>
+
+    
+<div class="container">
+
+    <form action="">
+
+        <div class="row">
+<!-- 
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" placeholder="john deo">
+                </div>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com">
+                </div>
+                <div class="inputBox">
+                    <span>address :</span>
+                    <input type="text" placeholder="room - street - locality">
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="mumbai">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="india">
+                    </div>
+                    <div class="inputBox">
+                        <span>zip code :</span>
+                        <input type="text" placeholder="123 456">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+
+                <div class="inputBox">
+                    <span>cards accepted :</span>
+                    <img src="images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>name on card :</span>
+                    <input type="text" placeholder="mr. john deo">
+                </div>
+                <div class="inputBox">
+                    <span>credit card number :</span>
+                    <input type="number" placeholder="1111-2222-3333-4444">
+                </div>
+                <div class="inputBox">
+                    <span>exp month :</span>
+                    <input type="text" placeholder="january">
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>exp year :</span>
+                        <input type="number" placeholder="2022">
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" placeholder="1234">
+                    </div>
+                </div>
+
+            </div> -->
+    
+        </div>
+
+
+        <div id="paypal-button-container"></div>
+        <!-- <input type="submit" value="proceed to checkout" class="submit-btn"> -->
+
+    </form>
+
+
+
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '1.00'  
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name);
+                    });
+                },
+                onError: function(err) {
+                    console.error('An error occurred:', err);
+                    alert('Something went wrong with your payment. Please try again.');
+                }
+            }).render('#paypal-button-container');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AZazp6JxWvFSkwlODkglO5nJM6Gq6SYo30bxAZbVVmHRcS6l6X3ljGnOnZGa0B0Vv1mEfcA7MyUQz9uh"></script>
+</head>
+<body>
+    <div>
+        <form>
+            <label for="name">Your name: </label>
+            <input type="text" id="name" name="name" value="name">
+            
+        </form>
+        <div id="paypal-button-container">click here</div>
+    </div>
+    
+    
+
+    <script>
+        paypal.Buttons({
+          createOrder: function(data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: 'YOUR_AMOUNT'  // Replace with the actual amount
+                }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name);
+              // Optionally, send details to your server for further processing
+            });
+          },
+          onError: function(err) {
+            console.error('An error occurred:', err);
+            alert('Something went wrong with your payment. Please try again.');
+          }
+        }).render('#paypal-button-container'); // Renders the PayPal button in the container
+      </script>
+
+
+
+
+    
+</body>
+</html> -->
